@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulador AI-901 | Examen de la Fase 2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="background-grid"></div>
+
+    <div class="app-container">
+      <!-- Encabezado -->
+      <header class="neon-header">
+        <div class="brand">
+          <span class="badge-cyber">AZURE AI-901</span>
+          <h1>SIMULADOR // EXAMEN DE LA FASE 2</h1>
+        </div>
+        <div class="header-actions">
+          <button id="btn-toggle-history" class="btn-outline-neon">
+            Historial de Sesión (<span id="attempt-count">0</span>)
+          </button>
+        </div>
+      </header>
+
+      <!-- Panel colapsable de historial de la sesión -->
+      <section id="history-panel" class="history-panel hidden">
+        <div class="panel-header">
+          <h2>REGISTRO DE INTENTOS EN SESIÓN</h2>
+          <button id="btn-close-history" class="btn-close">&times;</button>
+        </div>
+        <div id="history-list" class="history-list">
+          <!-- Se llena dinámicamente con JS -->
+        </div>
+      </section>
+
+      <!-- Contenedor Principal del Cuestionario -->
+      <main id="quiz-view" class="cyber-card">
+        <div class="quiz-status-bar">
+          <div class="progress-info">
+            <span id="question-counter">PREGUNTA 01 / 15</span>
+            <span id="live-score" class="score-pill">ACIERTOS: 0</span>
+          </div>
+          <div class="progress-track">
+            <div id="progress-fill" class="progress-fill"></div>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <p id="question-text" class="question-text"></p>
+        </div>
+
+        <div id="options-container" class="options-grid">
+          <!-- Opciones dinámicas -->
+        </div>
+
+        <!-- Tarjeta de Retroalimentación -->
+        <div id="feedback-card" class="feedback-card hidden">
+          <div id="feedback-header" class="feedback-header"></div>
+          <div class="feedback-body">
+            <p id="feedback-correct" class="fb-why-correct"></p>
+            <p id="feedback-others" class="fb-why-others"></p>
+          </div>
+        </div>
+
+        <div class="quiz-footer">
+          <button id="btn-next" class="btn-cyber-primary hidden">
+            SIGUIENTE PREGUNTA &rarr;
+          </button>
+        </div>
+      </main>
+
+      <!-- Vista de Resultados y Revisión Final -->
+      <section id="result-view" class="cyber-card hidden">
+        <div class="result-summary">
+          <div id="status-badge" class="status-badge"></div>
+          <h2 id="result-title"></h2>
+          <p id="result-message" class="result-subtitle"></p>
+
+          <div class="metrics-grid">
+            <div class="metric-box">
+              <span class="metric-label">CALIFICACIÓN</span>
+              <span id="final-percentage" class="metric-value">0%</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-label">ACIERTOS</span>
+              <span id="final-hits" class="metric-value">0 / 15</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-label">PUNTAJE (MÍN. 105)</span>
+              <span id="final-points" class="metric-value">0 / 150</span>
+            </div>
+          </div>
+
+          <div id="action-buttons" class="result-actions">
+            <button id="btn-retry" class="btn-cyber-primary">
+              NUEVO INTENTO
+            </button>
+          </div>
+        </div>
+
+        <!-- Desglose completo (Se muestra cuando aprueba con >= 70%) -->
+        <div id="review-section" class="review-section hidden">
+          <h3 class="review-heading">DESGLOSE COMPLETO DEL EXAMEN APROBADO</h3>
+          <div id="review-container" class="review-list">
+            <!-- Preguntas y respuestas del intento aprobado -->
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
